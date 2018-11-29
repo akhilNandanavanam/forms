@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactFormComponent } from './react-form/react-form.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { DashComponent } from './dash/dash.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,8 @@ import { DashComponent } from './dash/dash.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,8 +8,12 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./react-form.component.scss']
 })
 export class ReactFormComponent implements OnInit {
-  user_data = new FormGroup({
-    name: new FormControl('', Validators.required),
+  nameVal : string;
+  mailVal : string;
+  phoneVal : string;
+  passwordVal: string;
+  UserData = new FormGroup({
+    name : new FormControl('', Validators.required),
     phone: new FormControl('', Validators.compose([
       Validators.required,
       Validators.pattern('/d{6|7|8|9}/d{9}/')
@@ -22,12 +26,23 @@ export class ReactFormComponent implements OnInit {
       Validators.required,
       Validators.email
     ]))
- });
+  });
  
-  constructor(private formGroup : FormGroup) { }
+  constructor() { }
 
   ngOnInit() {
    
   }
-
+  formVals(){
+    console.log('uerdata-->',this.UserData)
+    this.nameVal = this.UserData.value.name; 
+    console.log(this.nameVal);
+    
+    this.mailVal = this.UserData.value.mail; 
+    console.log(this.mailVal);
+    this.phoneVal = this.UserData.value.mail; 
+    console.log(this.phoneVal);
+    this.passwordVal = this.UserData.value.password; 
+    console.log(this.passwordVal);
+  } 
 }

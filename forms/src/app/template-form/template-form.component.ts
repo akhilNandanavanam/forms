@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Model1 } from './model1';
+ 
 
 @Component({
   selector: 'app-template-form',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-form.component.scss']
 })
 export class TemplateFormComponent implements OnInit {
-
+  user:any={};
   constructor() { }
 
   ngOnInit() {
+   console.log(this.user);
+  }
+  consoleLogs(){
+    console.log(this.user);
   }
 
 }

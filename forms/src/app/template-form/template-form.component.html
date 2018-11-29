@@ -1,3 +1,22 @@
-<p>
-  This is template forms...!
-</p>
+<div>
+
+  <table>
+    <tr><td>Name</td><td><input type="text" name="name" required [(ngModel)]="user.name"></td></tr>
+    <tr><td>E-Mail</td><td><input type="text" name="mail" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required [(ngModel)]="user.mail"></td></tr>
+    <tr><td>Phone</td><td><input type="text" name="phone" required [(ngModel)]="user.phone"></td></tr>
+    <tr><td>Password</td><td><input type="password" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required [(ngModel)]="user.password"></td></tr>
+    <tr><td><input type="submit"name="submit" value="submit"(click)="consoleLogs()"></td><td></td></tr>
+</table>
+</div>
+
+
+
+<div id="dispVal">
+  <table>
+    <tr><th>Element</th><th>Value</th></tr>
+    <tr><td>Name</td><td>{{user.name}}</td></tr>
+    <tr><td>Phone</td><td>{{user.phone}}</td></tr>
+    <tr><td>E-Mail</td><td>{{user.mail}}</td></tr>
+    <tr><td>Password</td><td>{{user.password}}</td></tr>
+  </table>
+</div>
