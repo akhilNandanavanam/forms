@@ -1,22 +1,21 @@
 <div>
-  <form [formGroup]="UserData" (ngSubmit)="formVals()" >
+  <form [formGroup]='UserData' (ngSubmit)="formVals()" >
   <table>
-    <tr><td>Name</td><td><input type="text" name="name" formControlName="name"></td></tr>
-    <tr><td>E-Mail</td><td><input type="text" name="mail" formControlName="mail"></td></tr>
-    <tr><td>Phone</td><td><input type="text" name="phone" formControlName="phone"></td></tr>
-    <tr><td>Password</td><td><input type="password" name="password" formControlName="password"></td></tr>
+    <tr><td>Name</td><td><input type="text" name="name" formControlName='name'></td></tr>
+    <tr><td>E-Mail</td><td><input type="text" name="mail" formControlName='mail'></td></tr>
+    <tr><td>Phone</td><td><input type="text" name="phone" formControlName='phone'></td></tr>
+    <tr><td>Password</td><td><input type="password" name="password" formControlName='password'></td></tr>
     <tr><td><input type="submit"name="submit" value="submit"></td><td></td></tr>
 </table>
 </form>
 </div>
 
-<div *ngIf="name.invalid"><p>Name is required</p></div>
-<!-- <div *ngIf="name.errors.required"><p>Name is required</p></div>
-<div *ngIf="mail.hasError(required)"><p>Email is required</p></div>
-<div *ngIf="mail.hasError(pattern)"><p>E-Mail is badly formatted</p></div>
-<div *ngIf="password.hasError(required)"><p>Password is required</p></div>
-<div *ngIf="password.hasError(pattern)"><p>Password must have UpperCase, LowerCase, Number/SpecialChar and min 8 Chars</p></div>
- -->
+
+<div *ngIf="!mailVal"><p>E-Mail is badly formatted</p></div>
+<div *ngIf="!phoneVal"><p>Enter a Valid phone number</p></div>
+<div *ngIf="!nameVal"><p>Enter a Valid Name</p></div>
+<div *ngIf="!passwordVal"><p>Password Should Contain minimum of 8 characters, One Uppercase letter, one special character</p></div>
+
 <div id="dispVal" *ngIf="UserData.value.name">
   <table>
     <tr><th>Element</th><th>Value</th></tr>

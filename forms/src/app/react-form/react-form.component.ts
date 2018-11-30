@@ -8,15 +8,16 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./react-form.component.scss']
 })
 export class ReactFormComponent implements OnInit {
-  nameVal : string;
-  mailVal : string;
-  phoneVal : string;
-  passwordVal: string;
+  
+  nameVal : boolean;
+  mailVal : boolean = true;
+  phoneVal : boolean;
+  passwordVal: boolean;
   UserData = new FormGroup({
     name : new FormControl('', Validators.required),
     phone: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.pattern('/d{6|7|8|9}/d{9}/')
+      Validators.pattern('[7|8|9][0-9]{9}')
     ])),
       password : new FormControl('',Validators.compose([
       Validators.required,
@@ -34,15 +35,40 @@ export class ReactFormComponent implements OnInit {
    
   }
   formVals(){
-    console.log('uerdata-->',this.UserData)
-    this.nameVal = this.UserData.value.name; 
-    console.log(this.nameVal);
+    console.log('userdata-->',this.UserData);
+    if(this.UserData.controls.mail.status === 'INVALID'){
+      this.mailVal =  false;
+      
+    }
+    else if(this.UserData.controls.mail.status === 'VALID'){
+      this.mailVal =  true;
+      
+    }
+    if(this.UserData.controls.name.status === 'INVALID'){
+      this.nameVal =  false;
+    }
+    else if(this.UserData.controls.name.status === 'VALID'){
+      this.nameVal =  true;
+    }
+    if(this.UserData.controls.phone.status === 'INVALID'){
+      this.phoneVal =  false;
+    }
+    else if(this.UserData.controls.phone.status === 'VALID'){
+      this.phoneVal =  true;
+    }
+    if(this.UserData.controls.phone.status === 'INVALID'){
+      this.phoneVal =  false;
+    }
+    else if(this.UserData.controls.phone.status === 'VALID'){
+      this.phoneVal =  true;
+    }
+    if(this.UserData.controls.password.status === 'INVALID'){
+      this.passwordVal =  false;
+    }
+    else if(this.UserData.controls.password.status == 'VALID'){
+      this.passwordVal =  true;
+    }
     
-    this.mailVal = this.UserData.value.mail; 
-    console.log(this.mailVal);
-    this.phoneVal = this.UserData.value.mail; 
-    console.log(this.phoneVal);
-    this.passwordVal = this.UserData.value.password; 
-    console.log(this.passwordVal);
+    
   } 
-}
+  }
